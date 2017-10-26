@@ -8,20 +8,25 @@ function Write-FileLength
     {
         return ""
     }
+    elseif ($length -lt 1KB)
+    {
+        # Use same unit for 0 byte files and other files smaller than 1KB
+        # We don't need a precision here, so only calling ToString() - $length is already in bytes 
+        return ($length).ToString() + ' B'
+    }
     elseif ($length -ge 1GB)
     {
-        return ($length / 1GB).ToString("F") + 'GB'
+        return ($length / 1GB).ToString("F") + ' GB'
     }
     elseif ($length -ge 1MB)
     {
-        return ($length / 1MB).ToString("F") + 'MB'
+        return ($length / 1MB).ToString("F") + ' MB'
     }
     elseif ($length -ge 1KB)
     {
-        return ($length / 1KB).ToString("F") + 'KB'
+        return ($length / 1KB).ToString("F") + ' KB'
     }
-
-    return $length.ToString() + '  '
+    return $length.ToString() + '   '
 }
 
 # Outputs a line of a DirectoryInfo or FileInfo
@@ -30,7 +35,7 @@ function Write-Color-LS
     param ([string]$color = "white", $file)
 
     $length = if ($file -is [System.IO.DirectoryInfo]) { $null } else { $file.length }
-    Write-host ("{0,-7} {1,25} {2,10} {3}" -f $file.mode, ([String]::Format("{0,10}  {1,8}", $file.LastWriteTime.ToString("d"), $file.LastWriteTime.ToString("t"))), (Write-FileLength $length), $file.name) -foregroundcolor $color
+    Write-host ("{0,-7} {1,25} {2,10}  {3}" -f $file.mode, ([String]::Format("{0,10}  {1,8}", $file.LastWriteTime.ToString("d"), $file.LastWriteTime.ToString("t"))), (Write-FileLength $length), $file.name) -foregroundcolor $color
 }
 
 function FileInfo {
@@ -65,8 +70,8 @@ function FileInfo {
        Write-Host
        Write-Host "    Directory: " -noNewLine	   
        Write-Host " $currentdir`n" -foregroundcolor "Green"
-       Write-Host "Mode                LastWriteTime     Length Name"
-       Write-Host "----                -------------     ------ ----"
+       Write-Host "Mode                LastWriteTime     Length  Name"
+       Write-Host "----                -------------     ------  ----"
     }
 
     if ($hidden.IsMatch($file.Name))

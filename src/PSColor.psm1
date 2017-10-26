@@ -16,8 +16,8 @@ $global:PSColor = @{
         Hidden     = @{ Color = 'DarkGray'; Pattern = '^\.' } 
         Code       = @{ Color = 'Magenta'; Pattern = '\.(java|c|cpp|cs|js|css|html)$' }
         Executable = @{ Color = 'Red'; Pattern = '\.(exe|bat|cmd|py|pl|ps1|psm1|vbs|rb|reg)$' }
-        Text       = @{ Color = 'Yellow'; Pattern = '\.(txt|cfg|conf|ini|csv|log|config|xml|yml|md|markdown)$' }
-        Compressed = @{ Color = 'Green'; Pattern = '\.(zip|tar|gz|rar|jar|war|7z)$' }
+        Text       = @{ Color = 'Yellow'; Pattern = '\.(txt|cfg|conf|ini|csv|log|config|xml|yml|md|markdown|json|properties)$' }
+        Compressed = @{ Color = 'Green'; Pattern = '\.(zip|tar|gz|gzip|rar|jar|war|7z)$' }
     }
     Service = @{
         Default = @{ Color = 'White' }

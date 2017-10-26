@@ -34,7 +34,7 @@ function Write-Color-LS
 {
     param ([string]$color = "white", $file)
 
-    $length = if ($file -is [System.IO.DirectoryInfo]) { $null } else { $file.length }
+    $length = @{$true=$null;$false=$file.length}[$file -is [System.IO.DirectoryInfo]]
     Write-host ("{0,-7} {1,25} {2,10}  {3}" -f $file.mode, ([String]::Format("{0,10}  {1,8}", $file.LastWriteTime.ToString("d"), $file.LastWriteTime.ToString("t"))), (Write-FileLength $length), $file.name) -foregroundcolor $color
 }
 

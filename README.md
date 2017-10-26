@@ -8,15 +8,15 @@ Provides color highlighting for some basic PowerShell output. It currently rewri
 
 ## Installation
 
-The easiest way to install, by far, is to use [PsGet](http://psget.net/). Once PsGet is installed you can simply run `Install-Module PSColor`.
+<del>The easiest way to install, by far, is to use [PsGet](http://psget.net/). Once PsGet is installed you can simply run `Install-Module PSColor`.</del>
 
-Alternativly, you can download the file [PSColor.zip](https://github.com/open-coding/PSColor/raw/master/release/PSColor.zip) and extract it to a folder named `PSColor` in any of your PowerShell module paths. (Run `$env:PSModulePath` to see your paths.)
+<del>Alternativly, </del>you can download the file [PSColor.zip](https://github.com/open-coding/PSColor/raw/master/release/PSColor.zip) and extract it to a folder named `PSColor` in any of your PowerShell module paths. (Run `$env:PSModulePath` to see your paths.)
 
-If you want PSColor to be ran automatically you can add `Import-Module PSColor` to your PowerShell Profile. To locate your profile, run `$profile`
+<del>If you want PSColor to be ran automatically you can add `Import-Module PSColor` to your PowerShell Profile. To locate your profile, run `$profile`</del>
 
 ## Configuration
 
-You can configure PSColor by overriding the values of colors, patterns etc. Configurations should be added after `Import-Module PSColor` in your PowerShell profile. The default configuration looks like:
+You can configure PSColor by overriding the values of colors, patterns etc. Configurations should be added after <del>`Import-Module PSColor`</del> importing the module in your PowerShell profile. The default configuration looks like:
 
 ```powershell
 $global:PSColor = @{

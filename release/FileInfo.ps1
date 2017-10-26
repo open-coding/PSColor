@@ -64,14 +64,15 @@ function FileInfo {
 	{
 		$currentdir = $file.DirectoryName
 	}
-    if($script:directory -ne $currentdir)
+    if($script:showHeader)
     {
-	   $script:directory = $currentdir
+	   $currentdir
        Write-Host
        Write-Host "    Directory: " -noNewLine	   
        Write-Host " $currentdir`n" -foregroundcolor "Green"
        Write-Host "Mode                LastWriteTime     Length  Name"
        Write-Host "----                -------------     ------  ----"
+       $script:showHeader=$false
     }
 
     if ($hidden.IsMatch($file.Name))

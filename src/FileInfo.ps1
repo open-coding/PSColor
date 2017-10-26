@@ -82,19 +82,19 @@ function FileInfo {
     {
         Write-Color-LS $global:PSColor.File.Directory.Color $file
     }
-    elseif ($code.IsMatch($file.Name))
+    elseif ($code.IsMatch($file.Extension))
     {
         Write-Color-LS $global:PSColor.File.Code.Color $file
     }
-    elseif ($executable.IsMatch($file.Name))
+    elseif ($executable.IsMatch($file.Extension))
     {
         Write-Color-LS $global:PSColor.File.Executable.Color $file
     }
-    elseif ($text_files.IsMatch($file.Name))
+    elseif ($text_files.IsMatch($file.Extension))
     {
         Write-Color-LS $global:PSColor.File.Text.Color $file
     }
-    elseif ($compressed.IsMatch($file.Name))
+    elseif ($compressed.IsMatch($file.Extension))
     {
         Write-Color-LS $global:PSColor.File.Compressed.Color $file
     }
